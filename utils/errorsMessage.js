@@ -5,6 +5,8 @@ const CONFLICT_ERROR_TEXT = 'Пользователь с таким email уже
 const TOKEN_ERROR_TEXT = 'Ошибка аутентификации токена';
 const FORBIDDEN_ERROR_TEXT = 'Вы не можете удалить этот фильм';
 const AUTHORIZATION_ERROR_TEXT = 'Неправильные почта или пароль';
+const URL_ERROR_TEXT = 'Некорректный URL';
+const EMAIL_ERROR_TEXT = 'Неправильный формат почты';
 
 module.exports = {
   BAD_REQUSTER_ERROR_TEXT,
@@ -14,4 +16,6 @@ module.exports = {
   TOKEN_ERROR_TEXT,
   FORBIDDEN_ERROR_TEXT,
   AUTHORIZATION_ERROR_TEXT,
+  URL_ERROR_TEXT,
+  EMAIL_ERROR_TEXT,
 };
