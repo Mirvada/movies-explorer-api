@@ -69,6 +69,8 @@ const updateUser = (req, res, next) => {
     .catch((err) => {
       if (err instanceof ValidationError) {
         next(new BadRequest(BAD_REQUSTER_ERROR_TEXT));
+      } else if (err.code === DUBLICATE_STATUS) {
+        next(new Conflict(CONFLICT_ERROR_TEXT));
       } else {
         next(err);
       }
