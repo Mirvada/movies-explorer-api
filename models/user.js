@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 const Unauthorized = require('../utils/errors/UnauthorizedError');
-const { AUTHORIZATION_ERROR_TEXT } = require('../utils/errorsMessage');
+const { AUTHORIZATION_ERROR_TEXT, EMAIL_ERROR_TEXT } = require('../utils/errorsMessage');
 
 const userSchema = new mongoose.Schema(
   {
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
       unique: true,
       validate: {
         validator: (v) => validator.isEmail(v),
-        message: 'Неправильный формат почты',
+        message: EMAIL_ERROR_TEXT,
       },
     },
     password: {
@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      minlength: [2, 'Минимальная длина поля "name" - 2'],
-      maxlength: [30, 'Максимальная длина поля "name" - 30'],
+      minlength: 2,
+      maxlength: 30,
     },
   },
   {
